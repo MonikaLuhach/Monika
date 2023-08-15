@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Fira+Sans&family=PT+Sans+Narrow&family=Poppins:wght@300;600&family=Roboto&family=Roboto+Slab:wght@200&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <div><img src="logo.png" alt="logo"></div>
+                <div class="top"><ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="Resume.pdf" target="_blank">Resume</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul></div>
+            </nav>
+            <div class="photo">
+            <div class="header-text">
+                <!-- <p>Web Developer</p> -->
+                <h1>Hi, I'm <span>Monika</span></h1>
+                <h1>and I am a passionate</h1>
+                <span id="element"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="header-photo">
+    <img src="photo.png" alt="">
+</div>
+    </div>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+          strings: ['Web Developer', 'Programmer.'],
+          typeSpeed: 40,
+        });
+      </script>
+      <!-- -------------------------------- about section --------------------------- -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-1">
+                <img src="about-photo.jpeg" alt="">
+            </div>
+            <div class="about-2">
+                <h1>About Me</h1>
+                <p>I am Monika, I have completed my schooling from Jiwan Jyoti sr. sec. public school in the year 2021 with 96% marks. Currently, I am pursuing B.tech in computer science with specialization in Artificial Intelligence.  </p>
+                <div class="skills">
+                    <h2>Skills</h2>
+                    <div class="bar">
+                        <div class="info">
+                            <span>HTML</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="line html"></div>
+                    </div>
+                    <div class="bar">
+                        <div class="info">
+                            <span>CSS</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="line css"></div>
+                    </div>
+                    <div class="bar">
+                        <div class="info">
+                            <span>C++</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="line cp"></div>
+                    </div>
+                    <div class="bar">
+                        <div class="info">
+                            <span>C</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="line c"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+
+<!------------------------------------------------- contact ---------------------------------------------->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+        <div class="contact-left">
+            <h1>Contact Me</h1>
+            <p><i class="fa-regular fa-envelope"></i> monikaluhach2020@gmail.com</p>
+            <p><i class="fa-solid fa-phone"></i> +91 8595739176</p>
+            <div class="icons">
+                <a href="https://github.com/MonikaLuhach"><i id="github" class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/luhachmonika/" target="_blank"><i id="instagram" class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/monika-luhach-926513257/" target="_blank"><i id="linkedin" class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="contact-right">
+            <form action="/" name="submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="E-mail" placeholder="Your email" required>
+                <textarea name="Message" rows="5" placeholder="Message"></textarea>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+            <span id="msg"></span>
+        </div>
+    </div>
+</div>
+</div>
+<div class="copyright">
+    <p> Made with ❤️ Copyright © 2023 Monika.  </p>
+</div>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw25fl35XS6JYKUgfyGv23YkQbJX7Dm2KQ_Tc2aUnI-BNdx55gJU5jwmg_ZN67OSZCoWw/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const span = document.getElementById('msg')
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },1000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
